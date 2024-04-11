@@ -1,0 +1,14 @@
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        d = {'(': ')', '{': '}', '[': ']'}
+        stack = []
+        for i in s:
+            if i in d:  # 1. 열린 괄호이면 스택에 추가합니다.
+                stack.append(i)
+            elif len(stack) == 0 or d[stack.pop()] != i:  # 2. 닫힌 괄호인데 스택이 비어 있거나(매칭되는 열린 괄호가 없거나), 열린 괄호가 매치하지 않으면
+                return False
+        return len(stack) == 0  # 3. 마지막으로 스택에 매치되지 않은 열린 괄호가 남아있는지 확인합니다.
