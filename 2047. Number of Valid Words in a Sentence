@@ -1,0 +1,41 @@
+class Solution:
+    def countValidWords(self, sentence: str) -> int:
+        numValidWords = 0
+        for token in sentence.split():
+            if isValidWord(token):
+                numValidWords += 1
+        return numValidWords
+
+def isValidWord(token):
+    return satisfyFirst(token) and satisfySecond(token) and satisfyThird(token)
+
+def satisfyFirst(token):
+    for char in token:
+        if char.isdigit():
+            return False
+    return True
+
+def satisfySecond(token):
+    count = token.count('-')
+    if count == 0:
+        return True
+    if count == 1:
+        idx = token.find('-')
+        lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
+        if idx == 0:
+            return False
+        if token[idx-1] not in lowercase_letters:
+            return False
+        if idx == len(token)-1:
+            return False
+        if token[idx+1] not in lowercase_letters:
+            return False
+        return True
+    return False
+
+def satisfyThird(token):
+    n = len(token) -1
+    for idx, char in enumerate(token):
+        if char in '!,.' and idx != n:
+            return False
+    return True
