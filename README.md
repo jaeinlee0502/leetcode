@@ -1,1 +1,1 @@
-![image](https://github.com/jaeinlee0502/leetcode/assets/123054720/0b2f7f20-8da7-4b30-bd6f-364625759cd8)
+![화면 캡처 2024-06-21 090024](https://github.com/jaeinlee0502/leetcode/assets/123054720/903fc511-8e18-42d4-ba30-a2ae6f6d2a4d)
